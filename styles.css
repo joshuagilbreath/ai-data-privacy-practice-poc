@@ -80,9 +80,9 @@ textarea:focus-visible {
 .topbar {
   min-height: 132px;
   padding: 26px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
   gap: 20px;
   overflow: hidden;
   position: relative;
@@ -118,11 +118,12 @@ p {
 }
 
 h1 {
-  max-width: 720px;
+  max-width: none;
   margin-bottom: 0;
-  font-size: clamp(2rem, 3.2vw, 3.4rem);
+  font-size: clamp(2rem, 3vw, 3.2rem);
   line-height: 1.02;
   letter-spacing: 0;
+  white-space: nowrap;
 }
 
 h2 {
@@ -583,6 +584,10 @@ pre {
     min-height: 168px;
     padding: 20px;
     display: block;
+  }
+
+  h1 {
+    white-space: normal;
   }
 
   .status-pill {
