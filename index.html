@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Data Privacy Practice</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="activity">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">AI Academy Prototype</p>
+            <h1>AI Data Privacy Practice</h1>
+          </div>
+          <div class="status-pill" id="completionStatus">In progress</div>
+        </header>
+
+        <nav class="progress-steps" aria-label="Activity progress" id="progressSteps"></nav>
+        <div class="status-legend" aria-label="Question status legend">
+          <span><i class="legend-dot not-started"></i>Not started</span>
+          <span><i class="legend-dot in-progress"></i>Current</span>
+          <span><i class="legend-dot needs-revision"></i>Try again</span>
+          <span><i class="legend-dot complete"></i>Complete</span>
+        </div>
+
+        <section class="prompt-panel" id="promptPanel" aria-labelledby="promptTitle">
+          <div class="prompt-meta">
+            <span id="promptCount">Question 1 of 3</span>
+          </div>
+
+          <h2 id="promptTitle"></h2>
+          <p class="prompt-text" id="promptText"></p>
+
+          <label class="response-label" for="responseInput">Your response</label>
+          <textarea
+            id="responseInput"
+            rows="9"
+            placeholder="Explain what you would do, why it matters, and how you would keep the data safe."
+          ></textarea>
+
+          <div class="action-row">
+            <button class="ghost-button" id="resetButton" type="button">Clear response</button>
+            <button class="primary-button" id="submitButton" type="button">Submit response</button>
+          </div>
+        </section>
+
+        <section class="feedback-panel is-hidden" id="feedbackPanel" aria-live="polite">
+          <div class="score-block">
+            <div class="score-ring" id="scoreRing">
+              <span id="scoreValue">0</span>
+              <small>/100</small>
+            </div>
+            <div>
+              <p class="eyebrow">Feedback</p>
+              <h2 id="feedbackTitle">Response reviewed</h2>
+              <p id="feedbackSummary"></p>
+            </div>
+          </div>
+
+          <div class="remediation-callout" id="remediationCallout"></div>
+
+          <div class="feedback-grid">
+            <div>
+              <h3>You included</h3>
+              <ul id="metList"></ul>
+            </div>
+            <div>
+              <h3>To make it complete, include</h3>
+              <ul id="missedList"></ul>
+            </div>
+          </div>
+
+          <div class="action-row" id="feedbackActions">
+            <button class="primary-button" id="nextButton" type="button">Next question</button>
+          </div>
+        </section>
+
+        <section class="summary-panel is-hidden" id="summaryPanel" aria-labelledby="summaryTitle">
+          <div class="summary-hero">
+            <div>
+              <p class="eyebrow">Completion summary</p>
+              <h2 id="summaryTitle">Result</h2>
+              <p id="summaryNarrative"></p>
+            </div>
+            <div class="summary-score">
+              <span id="summaryScore">0</span>
+              <small>Average score</small>
+            </div>
+          </div>
+
+          <div class="summary-stats">
+            <div>
+              <strong id="summaryOutcome">In progress</strong>
+              <span>Outcome</span>
+            </div>
+            <div>
+              <strong id="summaryMastery">0/3</strong>
+              <span>Questions complete</span>
+            </div>
+            <div>
+              <strong id="summaryAttempts">0</strong>
+              <span>Total attempts</span>
+            </div>
+          </div>
+
+          <div class="summary-grid">
+            <div>
+              <h3>Question results</h3>
+              <ul id="summaryPromptList"></ul>
+            </div>
+            <div>
+              <h3>Suggested follow-up</h3>
+              <ul id="summaryTags"></ul>
+            </div>
+          </div>
+
+          <div class="completion-payload">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">LMS record</p>
+                <h3>Record preview</h3>
+              </div>
+              <button class="small-button" id="copySummaryButton" type="button">Copy</button>
+            </div>
+            <pre id="summaryPayload">{}</pre>
+          </div>
+
+          <div class="action-row">
+            <button class="secondary-button" id="reviewButton" type="button">Review responses</button>
+          </div>
+        </section>
+      </section>
+
+      <aside class="dashboard" aria-label="Learning dashboard">
+        <section class="panel">
+          <p class="eyebrow">Progress</p>
+          <h2 id="averageScore">No score yet</h2>
+          <div class="meter" aria-hidden="true">
+            <span id="averageMeter"></span>
+          </div>
+          <p class="panel-copy" id="snapshotCopy">Submit your response to see feedback.</p>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">What To Include</p>
+          <ul class="rubric-list">
+            <li>Name the private or sensitive information</li>
+            <li>Say why it needs care</li>
+            <li>Use only the information needed</li>
+            <li>Use approved tools and limit access</li>
+            <li>Check the answer before sharing it</li>
+          </ul>
+        </section>
+
+        <section class="panel is-hidden" aria-hidden="true">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">LMS event log</p>
+              <h2 id="eventCount">0 events</h2>
+            </div>
+            <button class="small-button" id="copyPayloadButton" type="button">Copy</button>
+          </div>
+          <pre id="eventLog">[]</pre>
+        </section>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
